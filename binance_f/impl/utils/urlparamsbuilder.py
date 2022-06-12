@@ -14,6 +14,7 @@ class UrlParamsBuilder(object):
                 self.param_map[name] = json.dumps(value)
             elif isinstance(value, float):
                 self.param_map[name] = ('%.20f' % (value))[slice(0, 16)].rstrip('0').rstrip('.')
+                self.param_map[name] = value
             else:
                 self.param_map[name] = str(value)
     def put_post(self, name, value):
